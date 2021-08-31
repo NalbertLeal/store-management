@@ -1,0 +1,11 @@
+name:
+  store_management
+server:
+  port: 8082
+spring:
+  application:
+    name: store_management
+  r2dbc:
+    url: r2dbc:postgresql://172.17.0.2:5432/store_management
+    username: postgres
+    password: admin

@@ -1,0 +1,28 @@
+### Get Manager
+GET http://localhost:8081/manager?email={}
+
+### Create Manager
+POST http://localhost:8081/manager
+Content-Type: application/json
+
+{
+  "fullname": "Nalbert Gabriel",
+  "email": "nalbertgml@gmail.com",
+  "password": "123456",
+  "salary": 4000.0
+}
+
+### Update Manager
+PUT http://localhost:8081/manager?email={}
+Content-Type: application/json
+
+{
+  "fullname": "Nalbert Leal",
+  "email": "nalbertg@outlook.com",
+  "password": "987654",
+  "salary": 1000.50
+}
+
+### Delete Manager
+
+DELETE http://localhost:8081/manager?email={}
