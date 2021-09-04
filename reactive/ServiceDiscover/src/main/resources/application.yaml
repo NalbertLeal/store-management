@@ -1,0 +1,11 @@
+name:
+  service_discover_server
+server:
+  port: 8087
+spring:
+  application:
+    name: service_discover_server
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
