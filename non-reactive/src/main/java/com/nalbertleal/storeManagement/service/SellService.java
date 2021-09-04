@@ -5,13 +5,14 @@ import com.nalbertleal.storeManagement.model.SellProducts;
 import com.nalbertleal.storeManagement.repository.SellProductsRepository;
 import com.nalbertleal.storeManagement.repository.SellRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-@RestController
+@Service
 public class SellService {
     @Autowired
     private SellRepository sellRepository;
