@@ -1,12 +1,12 @@
 name:
-  users_microservices
+  costs_microservice
 server:
-  port: 8082
+  port: 8085
 spring:
   application:
-    name: users_microservices
+    name: costs_microservice
   r2dbc:
-    url: r2dbc:postgresql://172.17.0.2:5432/users
+    url: r2dbc:postgresql://172.17.0.2:5432/costs
     username: postgres
     password: admin
 eureka:
