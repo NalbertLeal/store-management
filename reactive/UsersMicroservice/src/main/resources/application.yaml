@@ -1,0 +1,15 @@
+name:
+  users_microservices
+server:
+  port: 8082
+spring:
+  application:
+    name: users_microservices
+  r2dbc:
+    url: r2dbc:postgresql://172.17.0.2:5432/store_management
+    username: postgres
+    password: admin
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8087/eureka
