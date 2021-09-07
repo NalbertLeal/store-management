@@ -1,33 +1,34 @@
-package com.nalbertgml.usersmicroservice.models;
+package com.nalbertgml.sellsMicroservice.models;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
 
-@Table("manager")
-public class Manager {
+public class Seller {
     @Id
     private Long id;
     private String fullname;
     private String email;
     private String password;
     private Double salary;
+    private String managerEmail;
 
-    public Manager() {
+    public Seller() {
     }
 
-    public Manager(String fullname, String email, String password, Double salary) {
+    public Seller(String fullname, String email, String password, Double salary, String managerEmail) {
         this.fullname = fullname;
         this.email = email;
         this.password = password;
         this.salary = salary;
+        this.managerEmail = managerEmail;
     }
 
-    public Manager(Long id, String fullname, String email, String password, Double salary) {
+    public Seller(Long id, String fullname, String email, String password, Double salary, String managerEmail) {
         this.id = id;
         this.fullname = fullname;
         this.email = email;
         this.password = password;
         this.salary = salary;
+        this.managerEmail = managerEmail;
     }
 
     public Long getId() {
@@ -68,5 +69,13 @@ public class Manager {
 
     public void setSalary(Double salary) {
         this.salary = salary;
+    }
+
+    public String getManagerEmail() {
+        return managerEmail;
+    }
+
+    public void setManagerEmail(String managerEmail) {
+        this.managerEmail = managerEmail;
     }
 }

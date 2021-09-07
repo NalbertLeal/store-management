@@ -6,7 +6,7 @@ spring:
   application:
     name: users_microservices
   r2dbc:
-    url: r2dbc:postgresql://172.17.0.2:5432/users
+    url: r2dbc:postgresql://127.0.0.1:5432/users
     username: postgres
     password: admin
 eureka:

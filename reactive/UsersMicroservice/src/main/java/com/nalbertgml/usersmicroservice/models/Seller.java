@@ -1,7 +1,9 @@
 package com.nalbertgml.usersmicroservice.models;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
+@Table("seller")
 public class Seller {
     @Id
     private Long id;
