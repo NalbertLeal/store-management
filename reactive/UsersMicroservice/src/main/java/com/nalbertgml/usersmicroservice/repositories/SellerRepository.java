@@ -10,5 +10,5 @@ import reactor.core.publisher.Mono;
 public interface SellerRepository extends R2dbcRepository<Seller, Long> {
     Mono<Seller> findByEmail(String email);
     Flux<Seller> findByManagerEmail(String email);
-    Mono<Void> deleteByEmail(String email);
+    Mono<Boolean> deleteByEmail(String email);
 }

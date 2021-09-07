@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Map;
+
 @RestController
 public class SellerController {
     @Autowired
@@ -60,9 +62,13 @@ public class SellerController {
     }
 
     @DeleteMapping("/seller")
-    public Mono<Void> deleteSeller(@RequestParam String email) {
+    public Mono<Map> deleteSeller(@RequestParam String email) {
         return sellerService
             .deleteSeller(email)
+            .flatMap(success -> {
+                Map result = Map.of("success", success);
+                return Mono.just(result);
+            })
             .onErrorMap(err -> new Exception(""));
     }
 }

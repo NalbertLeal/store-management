@@ -68,11 +68,9 @@ public class SellerService {
             });
     }
 
-    public Mono<Void> deleteSeller(String email) {
+    public Mono<Boolean> deleteSeller(String email) {
         return sellerRepository
-            .findByEmail(email)
-            .flatMap(seller -> {
-               return sellerRepository.deleteById(seller.getId());
-            });
+            .deleteByEmail(email)
+            .switchIfEmpty(Mono.just(false));
     }
 }

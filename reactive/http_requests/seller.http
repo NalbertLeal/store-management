@@ -1,16 +1,16 @@
 ### Get seller
-GET http://localhost:8081/seller?email=nalbertrn@hotmail.com
+GET http://localhost:8081/seller?email=nalbertrn2@hotmail.com
 
 ### Get seller by manager email
-GET http://localhost:8081/sellers-from-manager?email={}
+GET http://localhost:8081/sellers-from-manager?email=nalbertgml@gmail.com
 
 ### Create seller
 POST http://localhost:8081/seller
 Content-Type: application/json
 
 {
-  "fullname": "Nalbert Leal",
-  "email": "nalbertrn@hotmail.com",
+  "fullname": "Nalbert Junior",
+  "email": "nalbertrn2@hotmail.com",
   "password": "123456",
   "salary": 4000.0,
   "managerEmail": "nalbertgml@gmail.com"
@@ -29,5 +29,4 @@ Content-Type: application/json
 }
 
 ### Delete seller
-
-DELETE http://localhost:8081/seller?email={}
+DELETE http://localhost:8081/seller?email=nalbertrn2@hotmail.com

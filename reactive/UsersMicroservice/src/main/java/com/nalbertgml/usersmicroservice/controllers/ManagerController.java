@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
+import java.util.Map;
+
 @RestController
 public class ManagerController {
     @Autowired
@@ -34,7 +36,14 @@ public class ManagerController {
     }
 
     @DeleteMapping("/manager")
-    public Mono<Boolean> deleteManager(@RequestParam String email) {
-        return managerService.deleteManager(email);
+    public Mono<Map> deleteManager(@RequestParam String email) {
+        return managerService.deleteManager(email)
+            .flatMap(success -> {
+                Map result = Map.of(
+                        "success", success
+                );
+                return Mono.just(result);
+            })
+            .switchIfEmpty( Mono.just(Map.of( "success", false )) );
     }
 }

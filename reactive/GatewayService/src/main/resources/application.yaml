@@ -7,21 +7,21 @@ spring:
     gateway:
       routes:
         - id: users
-          uri: http://localhost:8081
+          uri: http://users
           predicates:
             - Path=/users/**
         - id: sells
-          uri: http://localhost:8082
+          uri: http://sells
           predicates:
-            - Path=/sells_microservice/**
-#        - id: costs
-#          uri: http://costs_microservice
-#          predicates:
-#            - Path=/costs_microservice/**
-#        - id: products
-#          uri: http://products_microservice
-#          predicates:
-#            - Path=/products_microservice/**
+            - Path=/sells/**
+        - id: costs
+          uri: http://costs
+          predicates:
+            - Path=/costs/**
+        - id: products
+          uri: http://products
+          predicates:
+            - Path=/products/**
       discovery:
         locator:
           enabled: true
