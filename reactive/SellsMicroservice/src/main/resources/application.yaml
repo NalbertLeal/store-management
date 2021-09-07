@@ -1,10 +1,8 @@
-name:
-  sells_microservice
 server:
-  port: 8084
+  port: 8082
 spring:
   application:
-    name: sells_microservice
+    name: sells
   r2dbc:
     url: r2dbc:postgresql://127.0.0.1:5432/sells
     username: postgres
@@ -12,4 +10,4 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://127.0.0.1:8087/eureka
+      defaultZone: http://127.0.0.1:8761/eureka

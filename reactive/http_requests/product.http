@@ -1,0 +1,30 @@
+### Get product
+GET http://localhost:8081/product?id=1
+
+### Get all products
+GET http://localhost:8081/all-products
+
+### Create product
+POST http://localhost:8081/product
+Content-Type: application/json
+
+{
+  "name": "Nalbert Leal",
+  "price": 3000.0,
+  "stock": 10,
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisl. "
+}
+
+### Update product
+PUT http://localhost:8081/product?id=1
+Content-Type: application/json
+
+{
+  "name": "Repelente",
+  "price": 12.0,
+  "stock": 35,
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisl. "
+}
+
+### Delete product
+DELETE http://localhost:8081/product?id=1

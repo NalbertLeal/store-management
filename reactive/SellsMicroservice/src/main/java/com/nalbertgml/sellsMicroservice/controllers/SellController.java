@@ -3,6 +3,7 @@ package com.nalbertgml.sellsMicroservice.controllers;
 import com.nalbertgml.sellsMicroservice.models.Product;
 import com.nalbertgml.sellsMicroservice.models.Sell;
 import com.nalbertgml.sellsMicroservice.models.SellProducts;
+import com.nalbertgml.sellsMicroservice.models.Seller;
 import com.nalbertgml.sellsMicroservice.services.ProductService;
 import com.nalbertgml.sellsMicroservice.services.SellService;
 import com.nalbertgml.sellsMicroservice.services.SellerService;
@@ -37,10 +38,11 @@ public class SellController {
     public Mono<Sell> createSell(@RequestBody Sell sell) {
         return sellerService
             .getSeller( sell.getSellerEmail() )
+            .switchIfEmpty(Mono.just(new Seller()))
             .flatMap(seller -> {
+                if (seller.getEmail().length() == 0) return Mono.just(sell);
                 return sellService
-                    .createSell(sell)
-                    .onErrorMap(err -> new Exception(""));
+                    .createSell(sell);
             })
             .onErrorMap(err -> new Exception(err));
     }

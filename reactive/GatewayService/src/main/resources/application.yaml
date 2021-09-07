@@ -1,0 +1,32 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: users
+          uri: http://localhost:8081
+          predicates:
+            - Path=/users/**
+        - id: sells
+          uri: http://localhost:8082
+          predicates:
+            - Path=/sells_microservice/**
+#        - id: costs
+#          uri: http://costs_microservice
+#          predicates:
+#            - Path=/costs_microservice/**
+#        - id: products
+#          uri: http://products_microservice
+#          predicates:
+#            - Path=/products_microservice/**
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka

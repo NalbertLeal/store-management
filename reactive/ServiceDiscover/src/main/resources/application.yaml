@@ -1,10 +1,8 @@
-name:
-  service_discover_server
 server:
-  port: 8087
+  port: 8761
 spring:
   application:
-    name: service_discover_server
+    name: service-discover
 eureka:
   client:
     register-with-eureka: false

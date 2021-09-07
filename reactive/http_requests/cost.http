@@ -1,0 +1,24 @@
+### Get all costs
+GET http://localhost:8081/all-costs
+
+### Create a cost
+POST http://localhost:8081/cost
+Content-Type: application/json
+
+{
+  "amount": 125.76,
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisl."
+}
+
+### Update a cost
+PUT http://localhost:8081/cost?id={}
+Content-Type: application/json
+
+{
+  "amount": 95.34,
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisl."
+}
+
+### Delete a cost
+DELETE http://localhost:8081/cost?id={}
+Content-Type: application/json

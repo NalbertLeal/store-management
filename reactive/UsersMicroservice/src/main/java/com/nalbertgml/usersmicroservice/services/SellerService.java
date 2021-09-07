@@ -33,8 +33,11 @@ public class SellerService {
         return managerRepository
             .findByEmail(seller.getManagerEmail())
             .flatMap((manager) -> {
-                if (manager.getId() == seller.getId()) {
-                    return sellerRepository.save(seller);
+                if ( manager.getEmail().equals(seller.getManagerEmail()) ) {
+                    return sellerRepository
+                        .findByEmail(seller.getEmail())
+                        .switchIfEmpty(sellerRepository.save(seller))
+                        .flatMap(sellerFromDb -> Mono.just(seller));
                 }
                 return Mono.just(seller);
             });

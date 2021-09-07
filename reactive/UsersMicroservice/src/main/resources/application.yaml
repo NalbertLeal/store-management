@@ -1,15 +1,17 @@
-name:
-  users_microservices
+#name:
+#  users_microservices
 server:
-  port: 8082
+  port: 8081
 spring:
   application:
-    name: users_microservices
+    name: users
   r2dbc:
     url: r2dbc:postgresql://127.0.0.1:5432/users
     username: postgres
     password: admin
 eureka:
   client:
-    serviceUrl:
-      defaultZone: http://127.0.0.1:8087/eureka
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+    registerWithEureka: true
+    fetchRegistry: true

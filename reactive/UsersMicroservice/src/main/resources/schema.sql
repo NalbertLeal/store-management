@@ -1,4 +1,4 @@
 DROP TABLE IF EXISTS manager ;
 CREATE TABLE manager ( id SERIAL PRIMARY KEY, fullname TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL, salary FLOAT NOT NULL );
 DROP TABLE IF EXISTS seller ;
-CREATE TABLE seller ( id SERIAL PRIMARY KEY, fullname TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL, salary FLOAT NOT NULL, managerEmail TEXT NOT NULL);
+CREATE TABLE seller ( id SERIAL PRIMARY KEY, fullname TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL, salary FLOAT NOT NULL, manager_email TEXT NOT NULL);

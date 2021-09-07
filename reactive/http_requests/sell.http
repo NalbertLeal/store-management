@@ -1,0 +1,33 @@
+### Get all sell by seller email
+GET http://localhost:8082/sell?email={}
+
+### Create a sell
+POST http://localhost:8082/sell
+Content-Type: application/json
+
+{
+  "amount": 99.99,
+  "sellerEmail": "nalbertrn@hotmail.com"
+}
+
+### Indicate product into a sell
+POST http://localhost:8082/sell-products
+Content-Type: application/json
+
+{
+  "sell_id": 1,
+  "product_id": 1
+}
+
+### Update a sell
+PUT http://localhost:8082/sell?id={}
+Content-Type: application/json
+
+{
+  "amount": 100.0,
+  "seller_email": "nalbertrn@hotmail.com"
+}
+
+### Delete a sell
+DELETE http://localhost:8082/sell?id={}
+Content-Type: application/json
