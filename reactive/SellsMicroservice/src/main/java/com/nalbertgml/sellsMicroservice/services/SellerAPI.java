@@ -3,26 +3,27 @@ package com.nalbertgml.sellsMicroservice.services;
 import com.nalbertgml.sellsMicroservice.models.Seller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.reactive.ReactorLoadBalancerExchangeFilterFunction;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 import javax.ws.rs.core.MediaType;
 
-@Service
-public class SellerService {
+@Component
+public class SellerAPI {
     @Autowired
     private ReactorLoadBalancerExchangeFilterFunction lbFunction;
 
     public Mono<Seller> getSeller(String email) {
         return WebClient.builder()
             .baseUrl("http://users")
-                .filter(lbFunction)
-                .build()
-                .get()
-                .uri("/seller?email=" + email)
-                .retrieve()
-                .bodyToMono(Seller.class);
+            .filter(lbFunction)
+            .build()
+            .get()
+            .uri("/seller?email=" + email)
+            .retrieve()
+            .bodyToMono(Seller.class);
 
 //        return WebClient.create()
 //                .get()
