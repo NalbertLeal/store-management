@@ -1,0 +1,1 @@
+class HttpCreateSellerError extends Error {}

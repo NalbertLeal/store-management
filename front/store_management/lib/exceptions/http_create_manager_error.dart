@@ -1,0 +1,1 @@
+class HttpCreateManagerError extends Error {}
